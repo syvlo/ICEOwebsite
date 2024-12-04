@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<title>IC-EO</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
+body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+}
+
+.selected-button:hover {
+  color:white !important;
+  background-color:#616161 !important
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.label {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.logo-container {
+  padding: 10px; /* Add space between logo and text */
+}
+
+.text-container {
+  width: 59%; /* Adjust text width to fit available space */
+}
+
+/* Create a Parallax Effect */
+.bgimg-1, .bgimg-2, .bgimg-3 {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+.bgimg-1 {
+    background-image: url('images/Background1.png');
+    min-height: 100%;
+}
+
+/* Second image (DL) */
+.bgimg-2 {
+    background-image: url("images/Background1.png");
+    min-height: 200px;
+}
+
+/* Third image (Contact) */
+.bgimg-3 {
+    background-image: url("images/Background1.png");
+    min-height: 200px;
+}
+
+.w3-wide {letter-spacing: 10px;}
+.w3-hover-opacity {cursor: pointer;}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+        background-attachment: scroll;
+        min-height: 400px;
+    }
+}
+</style>
+<body onload="switchDataSet(0)">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+      <i class="fa fa-bars"></i>
+    </a>
+    <a href="#home" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+    <a href="#overview" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-space-shuttle"></i> OVERVIEW</a>
+    <a href="#news" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-newspaper"></i> NEWS</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+    <!--<a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-hover-red">
+      <i class="fa fa-search"></i>
+    </a>-->
+  </div>
+
+  <!-- Navbar on small screens -->
+  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+    <a href="#overview" class="w3-bar-item w3-button" onclick="toggleFunction()">OVERVIEW</a>
+    <a href="#news" class="w3-bar-item w3-button" onclick="toggleFunction()">NEWS</a>
+    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+    <!--<a href="#" class="w3-bar-item w3-button">SEARCH</a>-->
+  </div>
+</div>
+
+<!-- First Parallax Image with Logo Text -->
+<div class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-middle" style="height: 240px;">
+    <span class="w3-center w3-zlayer logo-container">
+      <img src="images/Logo.png" class="w3-circle w3-image" alt="logo" style="border:5px solid white; width: 150px;margin:10px;">
+    </span>
+    <div class="text-container w3-padding-large w3-black w3-xlarge w3-animate-opacity w3-display-bottommiddle">
+      IC-EO
+    </div>
+  </div>
+</div>
+
+
+<!-- Container (Portfolio Section) -->
+<div class="w3-content w3-container w3-padding-64" id="overview">
+  <h3 class="w3-center">OVERVIEW</h3>
+  <p class="w3-left-align">This page presents the project  Interpretable, Code-based assistant for Earth Observation (IC-EO) funded by <a href="https://www.esa.int">ESA</a></p>
+  
+  <p class="w3-left-align">The objective of the IC-EO project is to propose a conversational assistant that can interact with EO data, such as images. In this project, we will take advantage of the fact that EO tools can be interfaced via code. This will allow us to propose a model that can integrate current state of the art research in an extensible and straightforward manner. The objective of the IC-EO assistant is to be able to answer such questions as: “How much of the field on the left of this area burned down during the fires last summer?”, and “How many buildings are less than 5 minutes walk from the park?”, without restriction to specific formats. Uniquely, the answer to such questions will be code-based and hence can be reviewed and made comprehensible, as opposed to the black-box nature of current approaches. The model can be decomposed in two parts: first, we propose an application programming interface (API) that encompasses elementary tasks, such as classification, object detection, visual grounding and semantic segmentation. Second, we will train a large-language model to use this API, given as a context, to predict a code-based solution to the user’s query.</p>
+</div>
+
+
+<div class="bgimg-3 w3-display-container">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">NEWS</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="news">
+  <h3 class="w3-center">News</h3>
+  <ul class="w3-ul w3-border" style="width:100%">
+  <li>02/07/2024: Scientific kick-off of the project.</li>
+  <li>10/12/2024: Mid-term meeting</li>
+</ul>
+</div>
+
+<!-- Third Parallax Image with Portfolio Text -->
+<div class="bgimg-3 w3-display-container">
+  <div class="w3-display-middle">
+     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
+  </div>
+</div>
+
+<!-- Container (Contact Section) -->
+<div class="w3-content w3-container w3-padding-64" id="contact">
+  <h3 class="w3-center">PEOPLE</h3>
+  <div class="container">
+            <div class="column">
+                <img src="images/gaetan.webp" class="w3-circle w3-image" alt="logo" style="border:1px solid green; width: 100px;margin:10px;">
+                <div class="label">Gaetan Petit</div>
+            </div>
+            <div class="column">
+                <img src="images/simon.webp" class="w3-circle w3-image" alt="logo" style="border:1px solid green; width: 100px;margin:10px;">
+                <div class="label">Simon Grüning</div>
+            </div>
+            <div class="column">
+                <img src="images/laurynas.webp" class="w3-circle w3-image" alt="logo" style="border:1px solid green; width: 100px;margin:10px;">
+                <div class="label">Laurynas Lopata</div>
+            </div>
+        </div>
+
+        <!-- Logo 1 -->
+        <div class="w3-center" style="margin-bottom: 30px;">
+          <img src="images/ae.png" class="w3-image" alt="logo" style="width:20%;margin:10px;">
+        </div>
+
+        <!-- Second Row -->
+        <div class="container">
+            <div class="column">
+                <img src="images/SL.jpg" class="w3-circle w3-image" alt="logo" style="border:1px solid red; width: 100px;margin:10px;">
+                <div class="label">Sylvain Lobry</div>
+            </div>
+            <div class="column">
+                <img src="images/YC.jpg" class="w3-circle w3-image" alt="logo" style="border:1px solid red; width: 100px;margin:10px;">
+                <div class="label">Yuxing Chen</div>
+            </div>
+        </div>
+
+        <!-- Logo 2 -->
+        <div class="w3-center">
+          <img src="images/UPC.jpg" class="w3-image" alt="logo" style="width:20%;margin:10px;">
+        </div>
+    </div>
+  <p class="w3-center">This work is funded by <a href="https://www.esa.int">ESA</a></p>
+  <div class="w3-center">
+    <img style="width:20%" src="images/ESA.jpg" alt="logo anr">
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+ 
+<script>
+
+
+// Used to toggle the menu on small screens when clicking on the menu button
+function toggleFunction() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else {
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+</script>
+</body>
+</html>
